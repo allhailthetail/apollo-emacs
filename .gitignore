@@ -1,0 +1,11 @@
+# Local EMACS files to ignore:
+*~
+.#*
+#*
+*#
+elpa/
+auto-save-list/
+eln-cache/
+recentf
+modules/custom.el
+
