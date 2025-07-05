@@ -3,6 +3,14 @@
 .#*
 #*
 *#
+backups/
+bookmarks
+custom.el
+tramp
+projectile-bookmarks.eld
+.org-id-locations
+.lsp-session-v1
+
 elpa/
 auto-save-list/
 eln-cache/

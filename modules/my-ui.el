@@ -1,4 +1,8 @@
-;;;ui.el
+;;; my-ui.el --- Apollo Emacs customizations for UI experience
+
+;;; Commentary:
+
+;;; Code:
 
 ;; Disable Cursor Blink
 (blink-cursor-mode -1)
@@ -31,10 +35,13 @@
   (dashboard-setup-startup-hook))
 
 ;; Appearance Tweaks
-(setq line-spacing 0.12)
+(setq line-spacing 0.14)
 (setq-default fill-column 80)
 
 ;; Which-key for keybinding discovery
 (use-package which-key
   :init (which-key-mode)
   :config (setq which-key-idle-delay 0.5))
+
+(provide 'my-ui)
+;;; my-ui.el ends here.

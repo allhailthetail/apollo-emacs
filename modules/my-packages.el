@@ -1,4 +1,8 @@
-;;; packages.el
+;;; my-packages.el --- allhailthetail's Apollo customization.
+
+;;; Commentary:
+
+;;; code:
 
 ;; Bootstrap tools to run use-package:
 (require 'package)
@@ -18,6 +22,7 @@
 
 (defvar apollo-custom-packages
   '(which-key
+    auto-sudoedit
     company
     flycheck
     lsp-mode
@@ -25,7 +30,6 @@
     org
     org-modern
     org-super-agenda
-    python-mode
     rust-mode
     ess
     dashboard
@@ -40,3 +44,6 @@
 (dolist (pkg apollo-custom-packages)
   (unless (package-installed-p pkg)
     (package-install pkg)))
+
+(provide 'my-packages)
+;;; my-packages.el ends here

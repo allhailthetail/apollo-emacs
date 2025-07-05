@@ -1,4 +1,8 @@
-;;; org.el
+;;; my-org.el --- allhailthetail's Apollo customization.
+
+;;; Commentary:
+
+;;; code:
 
 ;; Org-Mode Enhancements
 (use-package org
@@ -30,13 +34,31 @@
   (not (member lang '("python" "C" "cpp" "rust"))))
 (setq org-confirm-babel-evaluate #'my-org-confirm-babel-evaluate)
 
+;; Add custom blocks to the beginning of new/empty org mode files:
+;;   These are specifically intended to be customized and will
+;;   likely vary wildly from use case to use case.
+(defun apollo/org-new-file-header()
+  "Insert a custom Org header in empty buffers."
+  (when (and (string= (buffer-name)
+                      (file-name-nondirectory (buffer-file-name)))
+             (= (point-min) (point-max)))  ;; file is empty
+    (let ((title (file-name-base (buffer-file-name))))
+      (insert (format "#+title: %s\n" title))
+      (insert "#+startup: indent overview hideblocks entitiespretty\n")
+      (save-buffer))))
+
+(add-hook 'org-mode-hook #'apollo/org-new-file-header)
+
+
 ;; Make ORG look a little nicer...
 (use-package org-superstar
+  :ensure t
   :hook (org-mode . org-superstar-mode)
   :config
   (setq org-superstar-headline-bullets-list '("●" "○" "✸" "✿")))
 
 (use-package org-super-agenda
+  :ensure t
   :after org-agenda
   :config
   (org-super-agenda-mode)
@@ -98,3 +120,6 @@
    (C . t)
    (shell . t)
    (R . t)))
+
+(provide 'my-org)
+;;; my-org.el ends here.
