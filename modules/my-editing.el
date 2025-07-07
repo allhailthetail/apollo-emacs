@@ -19,5 +19,9 @@
   :hook ((python-mode . lsp))
   :commands lsp)
 
+;; style tweaks for C/C++ Code:
+(setq c-default-style "linux"
+      c-basic-offset 4)
+
 (provide 'my-editing)
 ;;; my-editing.el ends here.
